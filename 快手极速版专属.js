@@ -40,7 +40,7 @@ if (text("福利").exists()) {
         swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
 
     }
-} else if (times = rawInput("请输入第一次刷视频的次数：", "")) {
+} else if (times) {
     console.log("10次直播福利结束啦！")
     back()
     dytimes(8000, 10000)
@@ -57,10 +57,9 @@ if (text("福利").exists()) {
         }
 
     }
-} else {
-    console.hide()
-    home();//回到首页
 }
+console.hide()
+home();//回到首页
 
 function nextVideo(x1, y1, x2, y2, duration) {
     swipe(x1, y1, x2, y2, duration)
