@@ -26,7 +26,6 @@ if (text("福利").exists()) {
         sleep(3000)
         id("video_close_icon").waitFor()
         id("video_close_icon").click()
-
     }
 } else if (indexInParent("35").text("看直播").exists()) {
     console.log("10次广告福利结束啦！")
