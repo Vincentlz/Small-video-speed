@@ -18,7 +18,7 @@ console.log("准备就绪！")
 
 id("left_btn").click()//点击菜单
 dytimes(2000, 4000)
-drawingOrder("3").id("container").click()//点击去赚钱
+drawingOrder("2").id("container").click()// drawingOrder("2") 点击去赚钱
 dytimes(2000, 4000)
 
 welfare();
@@ -33,17 +33,24 @@ function welfare() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 2), 150)
     dytimes(3000, 5000);
     for (let i = 1; i <= 10; i++) {
-        var target = text("福利 领金币").findOnce() || text("福利").findOnce();//待修整，空间位置每次都在变
-        if (target == null) {
+        if (text("福利 领金币").findOnce()) {
+            text("福利 领金币").click();
+            console.log("第" + i + "次广告福利")
+            //等待广告关闭按钮点击
+            id("video_close_icon").waitFor()
+            id("video_close_icon").click()
+            dytimes(3000, 5000);
+        } else if (text("福利").findOnce()) {
+            text("福利").click();
+            console.log("第" + i + "次广告福利")
+            //等待广告关闭按钮点击
+            id("video_close_icon").waitFor()
+            id("video_close_icon").click()
+            dytimes(3000, 5000);
+        } else if (text("明日再来").findOnce()){
             console.log("10次广告福利结束啦！");
-            break;
+            break
         }
-        dytimes(3000, 5000);
-        target.click();
-        console.log("第" + i + "次广告福利")
-        //等待广告关闭按钮点击
-        id("video_close_icon").waitFor()
-        id("video_close_icon").click()
     }
 }
 
@@ -52,25 +59,30 @@ function liveds() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
     dytimes(3000, 5000);
     console.log("开始看直播10次咯！")
-    if (text("看直播领金币").exists()) {
+    if (text("看直播领金币").exists() && text("看直播").exists()) {
         // text("看直播领金币").indexInParent("38").text("看直播").click()
         text("看直播").click()
+        // className("android.widget.Button").text("看直播").findOne().click()
         for (let i = 1; i <= 10; i++) {
             console.log("第" + i + "次直播奖励")
             sleep(32 * 1000)
             swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
-            if (i == 10) {
+            if (i == 10 && text("退出").exists()) {
+                text("退出").click()
                 console.log("10次直播福利结束啦！");
                 break;
             }
         }
+    } else if (text("已完成").findOnce()) {
+        console.log("10次直播福利结束啦！请确认");
+        back();
+        dytimes(3000, 5000)
+        back();
+        dytimes(3000, 5000)
+        back();
     }
-    back();
-    dytimes(3000, 5000)
-    back();
-    dytimes(3000, 5000)
-    back();
 }
+
 
 /**-------------------------按需刷小视频-------------------------------- */
 function videos() {
