@@ -9,15 +9,15 @@
 auto.waitFor()
 
 let times = rawInput("请输入要自动刷的视频次数：", "100")  //用户设置刷视频的个数，默认100
-// toast(times)
+
 console.show()  //显示悬浮窗（需要先打开悬浮窗权限）
-// app.launch("com.kuaishou.nebula")   //打开快手极速版
+
 var appName = rawInput("选择需要刷的小视频：", "快手极速版");//选择需要刷的小视频(抖音极速版、火山极速版、快手极速版等)
 launchApp(appName);
 sleep(10000)    //等待应用打开
 console.log("准备就绪！")
 toast("ready!")
-//console.log(device.width/2)
+
 
 /*核心部分开始*/
 for (var i = 0; i < times; ++i) {
@@ -59,6 +59,7 @@ function nextTwo() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
     sleep(random(10000, 15000))
 }
+
 /**使用本脚本的同学请填写邀请码：
     * 今日头条极速版邀请码：1181369091  （暂不适用）
     * 火山极速版邀请码：258239608
