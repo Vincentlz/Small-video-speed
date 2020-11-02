@@ -16,42 +16,41 @@ sleep(10000)    //等待应用打开
 console.log("准备就绪！")
 
 for (var i = 0; i < times; ++i) {
-    if(id("b16").findOnce() || text("开宝箱").findOnce()){
-        id("b10").findOne().click()
-        dytimes(3000,5000)
+    nextVideo(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
+    u = i + 1
+    console.log("总任务量：" + times + ";已完成：" + u)
+
+    /*随机回看 */
+    // j = random(1, 30)
+    if (text("开宝箱").exists()) {
+        id("b14").findOne().click()
+        dytimes(3000, 5000)
         boxs();
-        dytimes(3000,5000)
+        dytimes(3000, 5000) 
         xianshi();
-        dytimes(3000,5000)
+        dytimes(3000, 5000)
         back();
-        dytimes(3000,5000)
+        dytimes(3000, 5000)
         back();
-    }else{
-        nextVideo(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
-        u = i + 1
-        console.log("总任务量：" + times + ";已完成：" + u)
-        /*随机回看 */
-        j = random(1, 30)
-        if (j == 1) {
-            lookBack()
-        }
     }
-}
 
-function xianshi(){
-    if (text("限时任务赚金币").exists()){
+}
+console.hide()
+home();//回到首页
+function xianshi() {
+    if (text("限时任务赚金币").exists()) {
         className("android.view.View").text("去领取").findOne().click()
-        sleep(32*1000)
+        sleep(35 * 1000)
         back();
     }
 }
 
-function boxs(){
-    if (className("android.widget.TextView").text("开宝箱得金币").exists()){
+function boxs() {
+    if (className("android.widget.TextView").text("开宝箱得金币").exists()) {
         className("android.view.View").clickable(true).depth(12).findOne().click()
-        dytimes(3000,5000)
+        dytimes(3000, 5000)
         className("android.widget.TextView").text("看广告视频再赚").findOne().parent().click()
-        sleep(35*1000)
+        sleep(35 * 1000)
         back();
     }
 }
@@ -84,6 +83,8 @@ function dytimes(time1, time2) {
     delayTime = random(time1, time2)
     sleep(delayTime)    //在视频停留8-12秒
 }
+
+
 /**使用本脚本的同学请填写邀请码：
     * 今日头条极速版邀请码：1181369091  （暂不适用）
     * 火山极速版邀请码：258239608
