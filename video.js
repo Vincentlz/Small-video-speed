@@ -29,7 +29,6 @@ for (var i = 0; i < times; ++i) {
     if (j == 1) {
         lookBack()
     }
-
 }
 /*核心部分结束 */
 /*退出程序 */
