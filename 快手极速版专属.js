@@ -59,30 +59,31 @@ function liveds() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
     dytimes(3000, 5000);
     console.log("开始看直播10次咯！")
-    if (text("看直播领金币").exists() && text("看直播").exists()) {
-        // text("看直播领金币").indexInParent("38").text("看直播").click()
+    if (className("android.view.View").text("今日已成功领取直播奖励金币").exists()) {
+        console.log("10次直播福利结束啦！二次运行");
+        back()
+    }
+    else {
         text("看直播").click()
-        // className("android.widget.Button").text("看直播").findOne().click()
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 2; i++) {
             console.log("第" + i + "次直播奖励")
             sleep(32 * 1000)
             swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
-            if (i == 10 && text("退出").exists()) {
-                text("退出").click()
-                console.log("10次直播福利结束啦！");
-                break;
+            if (text("close_btn").exists()) {
+                text("close_btn").click()
+                console.log("有关注主播弹出");
+                // id("close_btn").waitFor()
+            } else if (i == 2 || text("退出").exists()) {
+                console.log("10次直播福利结束啦！里面");
+                back();
+                dytimes(1000, 3000);
+                back();
+                dytimes(1000, 3000);
+                back();
             }
         }
-    } else if (text("已完成").findOnce()) {
-        console.log("10次直播福利结束啦！请确认");
-        back();
-        dytimes(3000, 5000)
-        back();
-        dytimes(3000, 5000)
-        back();
     }
 }
-
 
 /**-------------------------按需刷小视频-------------------------------- */
 function videos() {
