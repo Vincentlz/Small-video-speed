@@ -20,18 +20,13 @@ for (var i = 0; i < times; ++i) {
     u = i + 1
     console.log("总任务量：" + times + ";已完成：" + u)
 
-    /*随机回看 */
-    // j = random(1, 30)
-    if (text("开宝箱").exists()) {
-        id("b14").findOne().click()
+    /*因广告金币不能领取只领宝箱金币 */
+ 
+    if (textContains("开宝箱").exists()) {
+        id("b8g").click()
+        className("android.view.View").clickable(true).depth(12).findOne().click()
         dytimes(3000, 5000)
-        boxs();
-        dytimes(3000, 5000) 
-        xianshi();
-        dytimes(3000, 5000)
-        back();
-        dytimes(3000, 5000)
-        back();
+        back();        
     }
 
 }
