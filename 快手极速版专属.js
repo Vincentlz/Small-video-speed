@@ -28,7 +28,7 @@ videos();
 console.hide()
 home();//回到首页
 
-/**-------------------------10次福利金币-------------------------------- */
+/**-------------------------10次福利金币（广告福利最近一直没反应可能又开始收割了，随缘吧）-------------------------------- */
 function welfare() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 2), 150)
     dytimes(3000, 5000);
@@ -77,6 +77,8 @@ function liveds() {
                 console.log("10次直播福利结束啦！里面");
                 back();
                 dytimes(1000, 3000);
+               //可能随机出现关注主播，视情况修改
+               //textContains("退出").click()
                 back();
                 dytimes(1000, 3000);
                 back();
