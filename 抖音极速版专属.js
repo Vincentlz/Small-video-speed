@@ -23,7 +23,7 @@ for (var i = 0; i < times; ++i) {
     /*因广告金币不能领取只领宝箱金币 */
  
     if (textContains("开宝箱").exists()) {
-        id("b8g").click()
+        id("b9b").click()//领宝箱按钮id不定时随机变化，失效请修改
         className("android.view.View").clickable(true).depth(12).findOne().click()
         dytimes(3000, 5000)
         back();        
