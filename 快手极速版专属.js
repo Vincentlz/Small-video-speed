@@ -18,20 +18,23 @@ console.show()  //显示悬浮窗（需要先打开悬浮窗权限）
 sleep(5000)    //等待应用打开
 console.log("准备就绪！")
 
+videos()
+dytimes(1000, 3000)
+
 /**-------------------------打开福利页面-------------------------------- */
 
 id("left_btn").click()//点击菜单
 dytimes(2000, 4000)
-drawingOrder("2").id("container").click()// drawingOrder("2") 点击去赚钱
+drawingOrder("3").id("container").click()// drawingOrder("2") 点击去赚钱
 dytimes(2000, 4000)
 
 /**-------------------------调用方法-------------------------------- */
+
 welfare()
 dytimes(1000, 3000)
 liveds()
 dytimes(1000, 3000)
-videos()
-dytimes(1000, 3000)
+
 console.hide()
 home();//回到首页
 /**-------------------------10次福利金币-------------------------------- */
@@ -90,13 +93,17 @@ function liveds() {
                 // id("close_btn").waitFor()
             } else if (i == 10) {
                 console.log("10次直播福利结束啦！里面");
-                back();
-                back();
-                back();
-                if (textContains("退出").exists()) {
-                    textContains("退出").click()
-                    back();
-                }
+                console.hide()
+                home();//回到首页
+                // back();
+                // back();
+                // back();
+                // if (id("exit_btn").exists()) {
+                //     id("exit_btn").findOne().click()
+                //     back();
+                //     sleep(3000)
+                //     back();
+                // }
 
                 
             }
@@ -117,6 +124,9 @@ function videos() {
         }
         if (j == 20) {
             nextTwo()
+        }
+        if(i==times){
+            break;
         }
     }
 }
@@ -149,6 +159,7 @@ function dytimes(time1, time2) {
     delayTime = random(time1, time2)
     sleep(delayTime)    //在视频停留8-12秒
 }
+
 
 
 /**使用本脚本的同学请填写邀请码：
