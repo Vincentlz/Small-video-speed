@@ -25,7 +25,7 @@ dytimes(1000, 3000)
 
 id("left_btn").click()//点击菜单
 dytimes(2000, 4000)
-drawingOrder("3").id("container").click()// drawingOrder("2") 点击去赚钱
+drawingOrder("2").id("container").click()// drawingOrder("2") 点击去赚钱
 dytimes(2000, 4000)
 
 /**-------------------------调用方法-------------------------------- */
