@@ -85,7 +85,7 @@ function liveds() {
         text("看直播").click()
         for (let i = 1; i <= 10; i++) {
             console.log("第" + i + "次直播奖励")
-            sleep(32 * 1000)
+            sleep(92 * 1000)
             swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
             if (text("close_btn").exists()) {
                 text("close_btn").click()
