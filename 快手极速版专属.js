@@ -70,7 +70,6 @@ function welfare() {
     }
 }
 
-
 /**-------------------------10次直播金币-------------------------------- */
 function liveds() {
     swipe(device.width / 2, device.height * (8 / 9), device.width / 2, device.height * (1 / 4), 150)
